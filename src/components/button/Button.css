@@ -18,3 +18,12 @@ button{
 button:hover{
     background-color: #4a707a;
 }
+
+.levelButton{
+    width: 50px;
+}
+
+.levelButton.active,
+.quizButton.active {
+    background-color: #4a707a;
+}

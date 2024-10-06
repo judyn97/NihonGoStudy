@@ -8,7 +8,7 @@ function App() {
   const [quiz, setQuiz] = useState('');
   return(
     <div className="App">
-      <Header setQuiz={setQuiz}/>
+      <Header quiz={quiz} setQuiz={setQuiz}/>
       <div className="MainBody">
         <QuizGameComponent quiz={quiz}/>
       </div>
