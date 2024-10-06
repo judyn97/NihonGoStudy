@@ -1,9 +1,12 @@
-import React from 'react';
+import {useEffect} from 'react';
 import './Button.css'
 
-const Button = ({name}) => {
+const Button = ({name, setQuiz}) => {
+
+  const handleClick = () => setQuiz(name);
+  
   return (
-    <button>
+    <button onClick={handleClick}>
         {name}
     </button>
   )
