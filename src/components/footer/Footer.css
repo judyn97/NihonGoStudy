@@ -1,0 +1,23 @@
+.Footer{
+    margin-top: auto;
+
+    background-color: #7697a0;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 25px 0;
+
+    h3{
+        padding: 5px 12px;
+        background-color: #94b0b7;
+        color: #fff;
+        border-radius: 15px;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        -ms-border-radius: 15px;
+        -o-border-radius: 15px;
+}
+}
