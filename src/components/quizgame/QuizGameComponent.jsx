@@ -7,6 +7,7 @@ import { katakanaData } from "../../KatakanaData";
 import correct from "../../assets/correct.mp3";
 import incorrect from "../../assets/incorrect.mp3";
 
+let usedHiragana = [];
 function QuizGameComponent({quiz}){
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [scoreCount, setScoreCount] = useState(0);
@@ -61,10 +62,22 @@ function QuizGameComponent({quiz}){
         }
       }, [level, vocabList]);
 
-    if(quiz === "Hiragana"){
-        let randomize = Math.floor(Math.random() * hiraganaData.length);
-        currentQuestion = hiraganaData[randomize];
-    }
+    if (quiz === "Hiragana") {
+      // Filter out used Hiragana
+      const availableHiragana = hiraganaData.filter(h => !usedHiragana.includes(h));
+      
+      if (availableHiragana.length === 0) {
+          // Reset usedHiragana if all have been used
+          usedHiragana = [];
+          currentQuestion = "All questions answered!";
+      } else {
+          let randomize = Math.floor(Math.random() * availableHiragana.length);
+          currentQuestion = availableHiragana[randomize];
+          
+          // Add to used Hiragana
+          usedHiragana.push(currentQuestion);
+      }
+    }     
     else if(quiz === "Katakana"){
         let randomize = Math.floor(Math.random() * katakanaData.length);
         currentQuestion = katakanaData[randomize];
